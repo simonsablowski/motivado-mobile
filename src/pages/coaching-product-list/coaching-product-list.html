@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Beratung und Coaching</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <div padding>
+      <ion-segment [(ngModel)]="category">
+        <ion-segment-button value="trennung">Trennung</ion-segment-button>
+        <ion-segment-button value="singles">Singles</ion-segment-button>
+        <ion-segment-button value="paare">Paare</ion-segment-button>
+      </ion-segment>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="category">
+    <ion-list *ngSwitchCase="'trennung'">
+      <button ion-item *ngFor="let coachingProduct of coachingProducts" (click)="selectCoachingProduct($event, coachingProduct)">
+        <ion-thumbnail item-left>
+          <img src="{{coachingProduct.thumbnail}}">
+        </ion-thumbnail>
+  			<h3>Trennung: {{coachingProduct.title}}</h3>
+  			<p>
+  				{{coachingProduct.description}}
+  			</p>
+      </button>
+    </ion-list>
+    <ion-list *ngSwitchCase="'singles'">
+      <button ion-item *ngFor="let coachingProduct of coachingProducts" (click)="selectCoachingProduct($event, coachingProduct)">
+        <ion-thumbnail item-left>
+          <img src="{{coachingProduct.thumbnail}}">
+        </ion-thumbnail>
+  			<h3>Singles: {{coachingProduct.title}}</h3>
+  			<p>
+  				{{coachingProduct.description}}
+  			</p>
+      </button>
+    </ion-list>
+    <ion-list *ngSwitchCase="'paare'">
+      <button ion-item *ngFor="let coachingProduct of coachingProducts" (click)="selectCoachingProduct($event, coachingProduct)">
+        <ion-thumbnail item-left>
+          <img src="{{coachingProduct.thumbnail}}">
+        </ion-thumbnail>
+  			<h3>Paare: {{coachingProduct.title}}</h3>
+  			<p>
+  				{{coachingProduct.description}}
+  			</p>
+      </button>
+    </ion-list>
+  </div>
+</ion-content>

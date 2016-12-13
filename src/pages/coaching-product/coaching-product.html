@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="page-coaching-product">
+  <ion-slides pager>
+    <ion-slide *ngFor="let object of objects">
+      <h2>{{object.title}}</h2>
+      <p>
+  			{{object.key}} {{object.type}} {{object.id}}
+  		</p>
+  		<div *ngIf="object.properties !== undefined && object.properties.video !== undefined && object.properties.video.url !== undefined">
+  			<video controls="controls" preload="metadata">
+  				<source src="http://videos.motivado.de/DIC_TeaserFigur_V2.mp4" type="video/mp4"/>
+  			</video>
+  		</div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
