@@ -10,7 +10,7 @@ export class CoachingService {
 		public http: Http
 	) {}
 
-	load() {
+	loadCoaching() {
 	  if (this.data) {
 	    return Promise.resolve(this.data);
 	  }

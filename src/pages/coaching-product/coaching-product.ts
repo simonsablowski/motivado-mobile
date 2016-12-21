@@ -21,11 +21,11 @@ export class CoachingProductPage {
     public coachingService: CoachingService
   ) {
     this.selectedProduct = navParams.get('item');
-    this.loadCoachingProduct();
+    this.loadProduct();
   }
 
-  loadCoachingProduct() {
-    this.coachingService.load()
+  loadProduct() {
+    this.coachingService.loadCoaching()
     .then(data => {
       this.title = data.title;
       this.description = data.description;

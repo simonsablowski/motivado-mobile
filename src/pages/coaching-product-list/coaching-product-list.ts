@@ -27,7 +27,7 @@ export class CoachingProductListPage {
   }
 
   loadCategories() {
-    this.coachingProductCategoryService.load()
+    this.coachingProductCategoryService.loadCategories()
     .then(data => {
       this.categories = data;
       this.selectedCategory = data[0];
@@ -35,7 +35,7 @@ export class CoachingProductListPage {
   }
 
   loadProducts() {
-    this.coachingProductService.load(this.selectedCategory)
+    this.coachingProductService.loadCategorysProducts(this.selectedCategory)
     .then(data => {
       this.products = data;
     });
