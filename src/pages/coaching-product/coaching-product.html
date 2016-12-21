@@ -10,15 +10,41 @@
 <ion-content class="page-coaching-product">
   <ion-slides pager>
     <ion-slide *ngFor="let object of objects">
-      <h2>{{object.title}}</h2>
-      <p>
-  			{{object.key}} {{object.type}} {{object.id}}
-  		</p>
-  		<div *ngIf="object.properties !== undefined && object.properties.video !== undefined && object.properties.video.url !== undefined">
-  			<video controls="controls" preload="metadata">
-  				<source src="http://videos.motivado.de/DIC_TeaserFigur_V2.mp4" type="video/mp4"/>
-  			</video>
-  		</div>
+      <div [ngSwitch]="object.type">
+        <div *ngSwitchCase="'Video'">
+      		<div *ngIf="object.properties !== undefined && object.properties.video !== undefined && object.properties.video.url !== undefined">
+      			<video controls="controls" preload="metadata">
+      				<source src="http://videos.motivado.de/DIC_TeaserFigur_V2.mp4" type="video/mp4"/>
+      			</video>
+      		</div>
+          <h2>{{object.title}}</h2>
+          <p>
+        		{{object.key}} {{object.type}} {{object.id}}
+        	</p>
+        </div>
+        <div *ngSwitchCase="'Text'">
+          <h2>{{object.title}}</h2>
+          <p>
+        		{{object.key}} {{object.type}} {{object.id}}
+        	</p>
+      		<div *ngIf="object.properties !== undefined && object.properties.video !== undefined && object.properties.video.url !== undefined">
+      			<video controls="controls" preload="metadata">
+      				<source src="http://videos.motivado.de/DIC_TeaserFigur_V2.mp4" type="video/mp4"/>
+      			</video>
+      		</div>
+        </div>
+        <div *ngSwitchCase="'Options'">
+          <h2>{{object.title}}</h2>
+          <div *ngIf="object.properties !== undefined && object.properties.options !== undefined">
+            <div *ngFor="let option of object.properties.options">
+        			<button ion-button block>{{option.value}}</button>
+        		</div>
+          </div>
+          <p>
+        		{{object.key}} {{object.type}} {{object.id}}
+        	</p>
+        </div>
+      </div>
     </ion-slide>
   </ion-slides>
 </ion-content>

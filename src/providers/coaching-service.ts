@@ -16,8 +16,8 @@ export class CoachingService {
 	  }
 
 	  return new Promise(resolve => {
-	    this.http.get('http://tools.motivado.de/ui/query/bez-rapid-ruin/1')
-		  //this.http.get('/var/www/motivado-mobile/assets/json/sample-coaching.json')
+	    //this.http.get('http://tools.motivado.de/ui/query/bez-rapid-ruin/1')
+		  this.http.get('assets/json/sample-coaching.json')
 	      .map(res => res.json())
 	      .subscribe(data => {
 	        this.data = data;
