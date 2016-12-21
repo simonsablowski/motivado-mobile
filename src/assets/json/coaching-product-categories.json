@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Ex zurück",
+    "language": "de_DE",
+    "key": "trennung",
+    "featured": true
+  },
+  {
+    "title": "Singles",
+    "language": "de_DE",
+    "key": "singles",
+    "featured": true
+  },
+  {
+    "title": "Partnerschaft",
+    "language": "de_DE",
+    "key": "paare",
+    "featured": true
+  },
+  {
+    "title": "Verführung",
+    "language": "de_DE",
+    "key": "verfuehrung",
+    "featured": true
+  },
+  {
+    "title": "Abnehmen",
+    "language": "de_DE",
+    "key": "abnehmen",
+    "featured": true
+  },
+  {
+    "title": "Gesundheit",
+    "language": "de_DE",
+    "key": "gesundheit",
+    "featured": true
+  },
+  {
+    "title": "Jobsuche",
+    "language": "de_DE",
+    "key": "bewerbung",
+    "featured": true
+  },
+  {
+    "title": "Mobbing",
+    "language": "de_DE",
+    "key": "mobbing",
+    "featured": true
+  }
+]

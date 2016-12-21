@@ -15,6 +15,7 @@ export class StartPage {
   }>;
 
   constructor() {
+    //TODO: use CoachingProductService and featured flag
     this.slides = [
       {
         title: 'Ex zurückgewinnen',
