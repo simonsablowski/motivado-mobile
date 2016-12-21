@@ -7,10 +7,10 @@ import { CoachingService } from '../../providers/coaching-service';
 @Component({
   selector: 'page-coaching-product',
   templateUrl: 'coaching-product.html',
-	providers: [CoachingService]
+	providers: [ CoachingService ]
 })
 export class CoachingProductPage {
-  selectedCoachingProduct: any;
+  selectedProduct: any;
   title: string;
   description: string;
   objects: any;
@@ -20,7 +20,7 @@ export class CoachingProductPage {
     public navParams: NavParams,
     public coachingService: CoachingService
   ) {
-    this.selectedCoachingProduct = navParams.get('item');
+    this.selectedProduct = navParams.get('item');
     this.loadCoachingProduct();
   }
 

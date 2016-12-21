@@ -1,39 +1,49 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { CoachingProductCategoryService } from '../../providers/coaching-product-category-service';
 import { CoachingProductService } from '../../providers/coaching-product-service';
 import { CoachingProductPage } from '../coaching-product/coaching-product';
 
 @Component({
   selector: 'page-coaching-product-list',
   templateUrl: 'coaching-product-list.html',
-	providers: [CoachingProductService]
+	providers: [ CoachingProductService, CoachingProductCategoryService ]
 })
 export class CoachingProductListPage {
-  selectedCoachingProduct: any;
-  // TODO: fix this
-  category: string = 'trennung';
-  coachingProducts: Array<{title: string, description: string, thumbnail: string}>;
+  selectedCategory: any;
+  selectedProduct: any;
+  categories: Array<{key: string, title: string}>;
+  products: Array<{title: string, description: string, thumbnail: string}>;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public coachingProductCategoryService: CoachingProductCategoryService,
     public coachingProductService: CoachingProductService
   ) {
-    this.selectedCoachingProduct = navParams.get('item');
-    this.loadCoachingProducts();
+    this.selectedProduct = navParams.get('item');
+    this.loadCategories();
+    this.loadProducts();
   }
 
-  loadCoachingProducts() {
-    this.coachingProductService.load()
+  loadCategories() {
+    this.coachingProductCategoryService.load()
     .then(data => {
-      //this.category = data.title;
-      this.coachingProducts = data;
+      this.categories = data;
+      this.selectedCategory = data[0];
     });
   }
 
-  selectCoachingProduct(event, coachingProduct) {
+  loadProducts() {
+    this.coachingProductService.load(this.selectedCategory)
+    .then(data => {
+      this.products = data;
+    });
+  }
+
+  selectProduct(event, product) {
     this.navCtrl.push(CoachingProductPage, {
-      coachingProduct: coachingProduct
+      product: product
     });
   }
 }

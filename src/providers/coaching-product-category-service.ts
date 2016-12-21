@@ -3,25 +3,21 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class CoachingProductService {
-	category: any;
+export class CoachingProductCategoryService {
 	data: any;
 
   constructor(
 		public http: Http
 	) {}
 
-	load(category) {
-		if (this.data) {
+	load() {
+	  if (this.data) {
 	    return Promise.resolve(this.data);
 	  }
 
 	  return new Promise(resolve => {
-	    this.http.get('assets/json/coaching-products.json')
-	      .map(res => res.json().filter(function(element) {
-					//TODO: fix category
-					return element.category == 'trennung';
-				}))
+	    this.http.get('assets/json/coaching-product-categories.json')
+	      .map(res => res.json())
 	      .subscribe(data => {
 	        this.data = data;
 	        resolve(this.data);

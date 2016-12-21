@@ -19,35 +19,35 @@
 <ion-content>
   <div [ngSwitch]="category">
     <ion-list *ngSwitchCase="'trennung'">
-      <button ion-item *ngFor="let coachingProduct of coachingProducts" (click)="selectCoachingProduct($event, coachingProduct)">
+      <button ion-item *ngFor="let product of products" (click)="selectProduct($event, product)">
         <ion-thumbnail item-left>
-          <img src="{{coachingProduct.thumbnail}}">
+          <img src="{{product.thumbnail}}">
         </ion-thumbnail>
-  			<h3>{{coachingProduct.title}}</h3>
+  			<h3>{{product.title}}</h3>
   			<p>
-  				{{coachingProduct.description}}
+  				{{product.description}}
   			</p>
       </button>
     </ion-list>
     <ion-list *ngSwitchCase="'singles'">
-      <button ion-item *ngFor="let coachingProduct of coachingProducts" (click)="selectCoachingProduct($event, coachingProduct)">
+      <button ion-item *ngFor="let product of products" (click)="selectProduct($event, product)">
         <ion-thumbnail item-left>
-          <img src="{{coachingProduct.thumbnail}}">
+          <img src="{{product.thumbnail}}">
         </ion-thumbnail>
-  			<h3>{{coachingProduct.title}}</h3>
+  			<h3>{{product.title}}</h3>
   			<p>
-  				{{coachingProduct.description}}
+  				{{product.description}}
   			</p>
       </button>
     </ion-list>
     <ion-list *ngSwitchCase="'paare'">
-      <button ion-item *ngFor="let coachingProduct of coachingProducts" (click)="selectCoachingProduct($event, coachingProduct)">
+      <button ion-item *ngFor="let product of products" (click)="selectProduct($event, product)">
         <ion-thumbnail item-left>
-          <img src="{{coachingProduct.thumbnail}}">
+          <img src="{{product.thumbnail}}">
         </ion-thumbnail>
-  			<h3>{{coachingProduct.title}}</h3>
+  			<h3>{{product.title}}</h3>
   			<p>
-  				{{coachingProduct.description}}
+  				{{product.description}}
   			</p>
       </button>
     </ion-list>
