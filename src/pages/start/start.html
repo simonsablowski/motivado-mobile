@@ -10,7 +10,7 @@
 <ion-content class="page-start">
   <ion-slides pager>
     <ion-slide *ngFor="let product of products">
-      <button [navPush]="product.component">
+      <button (click)="selectProduct($event, product)">
         <img [src]="product.image" class="slide-image"/>
       </button>
     </ion-slide>

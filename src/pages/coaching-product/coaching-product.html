@@ -10,7 +10,7 @@
 <ion-content class="page-coaching-product">
   <ion-slides pager>
     <ion-slide *ngFor="let object of objects">
-      <div [ngSwitch]="object.type">
+      <div [ngSwitch]="object.type" padding>
         <div *ngSwitchCase="'Video'">
       		<div *ngIf="object.properties !== undefined && object.properties.video !== undefined && object.properties.video.url !== undefined">
       			<video controls="controls" preload="metadata">
