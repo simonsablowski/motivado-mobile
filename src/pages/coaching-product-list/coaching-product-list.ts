@@ -11,9 +11,10 @@ import { CoachingProductPage } from '../coaching-product/coaching-product';
 })
 export class CoachingProductListPage {
   selectedCategory: any;
+  selectedTopic: any;
   selectedProduct: any;
-  categories: Array<{key: string, title: string}>;
-  products: Array<{title: string, description: string, thumbnail: string}>;
+  topics: Array<{ key: string, title: string }>;
+  products: Array<{ title: string, description: string, thumbnail: string }>;
 
   constructor(
     public navCtrl: NavController,
@@ -21,21 +22,24 @@ export class CoachingProductListPage {
     public coachingProductCategoryService: CoachingProductCategoryService,
     public coachingProductService: CoachingProductService
   ) {
+    //TODO: fix these
+    this.selectedCategory = { "key": "liebe", "title": "Liebe" };
+    this.selectedTopic = { "key": "trennung", "title": "Ex zurück" };
     this.selectedProduct = navParams.get('item');
-    this.loadCategories();
+    this.loadTopics();
     this.loadProducts();
   }
 
-  loadCategories() {
-    this.coachingProductCategoryService.loadCategories()
+  loadTopics() {
+    this.coachingProductCategoryService.loadTopics(this.selectedCategory)
     .then(data => {
-      this.categories = data;
-      this.selectedCategory = data[0];
+      this.topics = data;
+      this.selectedTopic = data[0];
     });
   }
 
   loadProducts() {
-    this.coachingProductService.loadCategorysProducts(this.selectedCategory)
+    this.coachingProductService.loadTopicsProducts(this.selectedTopic)
     .then(data => {
       this.products = data;
     });

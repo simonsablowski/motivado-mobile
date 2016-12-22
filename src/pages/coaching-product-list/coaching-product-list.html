@@ -3,53 +3,31 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Beratung und Coaching</ion-title>
+    <ion-title>{{selectedCategory.title}}</ion-title>
   </ion-navbar>
   <ion-toolbar>
     <div padding>
-      <ion-segment [(ngModel)]="category">
-        <ion-segment-button value="trennung">Trennung</ion-segment-button>
-        <ion-segment-button value="singles">Singles</ion-segment-button>
-        <ion-segment-button value="paare">Paare</ion-segment-button>
+      <ion-segment [(ngModel)]="topic">
+        <ion-segment-button *ngFor="let topic of topics" value="{{topic.key}}">{{topic.title}}</ion-segment-button>
       </ion-segment>
     </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div [ngSwitch]="category">
-    <ion-list *ngSwitchCase="'trennung'">
-      <button ion-item *ngFor="let product of products" (click)="selectProduct($event, product)">
-        <ion-thumbnail item-left>
-          <img src="{{product.thumbnail}}">
-        </ion-thumbnail>
-  			<h3>{{product.title}}</h3>
-  			<p>
-  				{{product.description}}
-  			</p>
-      </button>
-    </ion-list>
-    <ion-list *ngSwitchCase="'singles'">
-      <button ion-item *ngFor="let product of products" (click)="selectProduct($event, product)">
-        <ion-thumbnail item-left>
-          <img src="{{product.thumbnail}}">
-        </ion-thumbnail>
-  			<h3>{{product.title}}</h3>
-  			<p>
-  				{{product.description}}
-  			</p>
-      </button>
-    </ion-list>
-    <ion-list *ngSwitchCase="'paare'">
-      <button ion-item *ngFor="let product of products" (click)="selectProduct($event, product)">
-        <ion-thumbnail item-left>
-          <img src="{{product.thumbnail}}">
-        </ion-thumbnail>
-  			<h3>{{product.title}}</h3>
-  			<p>
-  				{{product.description}}
-  			</p>
-      </button>
-    </ion-list>
+  <div>
+    <div>
+      <ion-list>
+        <button ion-item *ngFor="let product of products" (click)="selectProduct($event, product)">
+          <ion-thumbnail item-left>
+            <img src="{{product.thumbnail}}">
+          </ion-thumbnail>
+    			<h3>{{product.title}}</h3>
+    			<p>
+    				{{product.description}}
+    			</p>
+        </button>
+      </ion-list>
+    </div>
   </div>
 </ion-content>

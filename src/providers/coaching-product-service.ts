@@ -4,23 +4,45 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class CoachingProductService {
-	category: any;
+	topic: any;
 	data: any;
 
   constructor(
 		public http: Http
 	) {}
 
-	loadCategorysProducts(category) {
+	loadTopicsProducts(topic) {
+		this.topic = topic;
+
+		if (this.data) {
+	    return Promise.resolve(this.data);
+	  }
+
+	  return new Promise(resolve => {
+			this.http.get('assets/json/coaching-products.json')
+	      .map(res => res.json().filter(product => {
+					if (this.topic !== undefined && this.topic.key !== undefined) {
+						return product.topic == this.topic.key;
+					} else {
+						return true;
+					}
+				}))
+	      .subscribe(data => {
+	        this.data = data;
+	        resolve(this.data);
+	      });
+	  });
+	}
+
+	loadFeaturedProducts() {
 		if (this.data) {
 	    return Promise.resolve(this.data);
 	  }
 
 	  return new Promise(resolve => {
 	    this.http.get('assets/json/coaching-products.json')
-	      .map(res => res.json().filter(function(element) {
-					//TODO: fix category
-					return element.category == 'trennung';
+	      .map(res => res.json().filter(function(product) {
+					return product.featured == true;
 				}))
 	      .subscribe(data => {
 	        this.data = data;

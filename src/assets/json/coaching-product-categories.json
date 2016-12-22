@@ -1,50 +1,88 @@
 [
   {
-    "title": "Ex zurück",
+    "title": "Liebe",
     "language": "de_DE",
-    "key": "trennung",
-    "featured": true
-  },
-  {
-    "title": "Singles",
-    "language": "de_DE",
-    "key": "singles",
-    "featured": true
-  },
-  {
-    "title": "Partnerschaft",
-    "language": "de_DE",
-    "key": "paare",
-    "featured": true
-  },
-  {
-    "title": "Verführung",
-    "language": "de_DE",
-    "key": "verfuehrung",
-    "featured": true
-  },
-  {
-    "title": "Abnehmen",
-    "language": "de_DE",
-    "key": "abnehmen",
-    "featured": true
+    "key": "liebe",
+    "featured": true,
+    "topics": [
+      {
+        "title": "Ex zurück",
+        "language": "de_DE",
+        "key": "trennung",
+        "featured": true
+      },
+      {
+        "title": "Singles",
+        "language": "de_DE",
+        "key": "singles",
+        "featured": true
+      },
+      {
+        "title": "Partnerschaft",
+        "language": "de_DE",
+        "key": "paare",
+        "featured": true
+      },
+      {
+        "title": "Verführung",
+        "language": "de_DE",
+        "key": "verfuehrung",
+        "featured": true
+      }
+    ]
   },
   {
     "title": "Gesundheit",
     "language": "de_DE",
     "key": "gesundheit",
-    "featured": true
+    "featured": true,
+    "topics": [
+      {
+        "title": "Abnehmen",
+        "language": "de_DE",
+        "key": "abnehmen",
+        "featured": true
+      },
+      {
+        "title": "Schlafen",
+        "language": "de_DE",
+        "key": "schlafen",
+        "featured": true
+      },
+      {
+        "title": "Rauchen",
+        "language": "de_DE",
+        "key": "rauchen",
+        "featured": true
+      }
+    ]
   },
   {
-    "title": "Jobsuche",
+    "title": "Karriere",
     "language": "de_DE",
-    "key": "bewerbung",
-    "featured": true
+    "key": "karriere",
+    "featured": true,
+    "topics": [
+      {
+        "title": "Jobsuche",
+        "language": "de_DE",
+        "key": "bewerbung",
+        "featured": true
+      }
+    ]
   },
   {
-    "title": "Mobbing",
+    "title": "Erziehung",
     "language": "de_DE",
-    "key": "mobbing",
-    "featured": true
+    "key": "erziehung",
+    "featured": true,
+    "topics": [
+      {
+        "title": "Mobbing",
+        "language": "de_DE",
+        "key": "mobbing",
+        "featured": true
+      }
+    ]
   }
 ]
